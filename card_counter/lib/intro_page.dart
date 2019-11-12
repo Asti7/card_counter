@@ -77,6 +77,7 @@ class _IntroPageState extends State<IntroPage> {
                   ),
                   SizedBox(height: 150),
                   Wrap(
+                    
                     children: <Widget>[
                       Container(
                         width: 150,
@@ -95,8 +96,6 @@ class _IntroPageState extends State<IntroPage> {
                                     .nextInt(Values().cardValues.length)];
                                 cardType2 = Values().cardTypes[Random()
                                     .nextInt(Values().cardTypes.length)];
-
-
 
                                 count++;
                               },
@@ -150,11 +149,13 @@ class _IntroPageState extends State<IntroPage> {
                                 () {
                                   count = 0;
                                   showCount = 0;
+                                  setState(() {
+                                    cardValue1 = "Start";
+                                    cardType1 = "start";
 
-                                  @override
-                                  void initState() {
-                                    super.initState();
-                                  }
+                                    cardValue2 = "Start";
+                                    cardType2 = "start";
+                                  });
                                 },
                               );
                             },
