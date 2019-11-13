@@ -1,5 +1,5 @@
 class Values {
-   List cardValues = [
+  List cardValues = [
     '2',
     '3',
     '4',
@@ -15,6 +15,11 @@ class Values {
     'Q'
   ];
 
-  List cardTypes = ['C', 'D', 'H', 'S'];
+  List negativeOneValues = ['2', '3', '4', '5', '6'];
 
+  List zeroValues = ['7', '8', '9'];
+
+  List positiveOneValues = ['10', 'A', 'J', 'K', 'Q'];
+
+  List cardTypes = ['C', 'D', 'H', 'S'];
 }

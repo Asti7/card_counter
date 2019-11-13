@@ -1,6 +1,7 @@
+import 'package:card_counter/intro_page.dart';
 import 'package:flutter/material.dart';
 
-import 'intro_page.dart';
+import 'main_page.dart';
 
 void main() => runApp(CardCounter());
 
@@ -10,7 +11,6 @@ class CardCounter extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: IntroPage(),
-      routes: {},
     );
   }
 }

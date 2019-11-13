@@ -1,36 +1,7 @@
+import 'package:card_counter/main_page.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
-import 'value.dart';
 
-class IntroPage extends StatefulWidget {
-  @override
-  _IntroPageState createState() => _IntroPageState();
-}
-
-class _IntroPageState extends State<IntroPage> {
-  var cardValue1 =
-      Values().cardValues[Random().nextInt(Values().cardValues.length)];
-  var cardType1 =
-      Values().cardTypes[Random().nextInt(Values().cardTypes.length)];
-
-  var cardValue2 =
-      Values().cardValues[Random().nextInt(Values().cardValues.length)];
-  var cardType2 =
-      Values().cardTypes[Random().nextInt(Values().cardTypes.length)];
-
-  var count = 0;
-  var showCount = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    cardValue1 = "Start";
-    cardType1 = "start";
-
-    cardValue2 = "Start";
-    cardType2 = "start";
-  }
-
+class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -40,160 +11,113 @@ class _IntroPageState extends State<IntroPage> {
             child: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [Color(0xffea5e7b), Color(0xffec7065)]),
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [Color(0xffea5e7b), Color(0xffec7065)],
+                ),
               ),
             ),
           ),
-        ),
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Wrap(
-                    children: <Widget>[
-                      Container(
-                        height: 400,
-                        width: 300,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child:
-                            Image.asset('assets/${cardValue1}${cardType1}.png'),
-                      ),
-                      Container(
-                        height: 400,
-                        width: 300,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child:
-                            Image.asset('assets/${cardValue2}${cardType2}.png'),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 150),
-                  Wrap(
-                    
-                    children: <Widget>[
-                      Container(
-                        width: 150,
-                        height: 50,
-                        child: RaisedButton(
-                          elevation: 3,
-                          onPressed: () {
-                            setState(
-                              () {
-                                cardValue1 = Values().cardValues[Random()
-                                    .nextInt(Values().cardValues.length)];
-                                cardType1 = Values().cardTypes[Random()
-                                    .nextInt(Values().cardTypes.length)];
-
-                                cardValue2 = Values().cardValues[Random()
-                                    .nextInt(Values().cardValues.length)];
-                                cardType2 = Values().cardTypes[Random()
-                                    .nextInt(Values().cardTypes.length)];
-
-                                count++;
-                              },
-                            );
-                          },
-                          color: Color(0xffbeebe9),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20),
-                            ),
-                          ),
-                          child: Text('Roll Card'),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Container(
-                        width: 150,
-                        height: 50,
-                        child: RaisedButton(
-                          elevation: 3,
-                          onPressed: () {
-                            setState(() {
-                              showCount = count;
-                            });
-                          },
-                          color: Color(0xffff78ae),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20),
-                            ),
-                          ),
-                          child: Text('Show Count'),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Container(
-                        height: 50,
-                        width: 70,
-                        child: Tooltip(
-                          message: "Refresh count and start over !",
-                          margin: EdgeInsets.all(10),
-                          height: 100,
-                          child: RaisedButton(
-                            elevation: 3,
-                            onPressed: () {
-                              setState(
-                                () {
-                                  count = 0;
-                                  showCount = 0;
-                                  setState(() {
-                                    cardValue1 = "Start";
-                                    cardType1 = "start";
-
-                                    cardValue2 = "Start";
-                                    cardType2 = "start";
-                                  });
-                                },
-                              );
-                            },
-                            color: Color(0xffdcffcc),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(20),
-                              ),
-                            ),
-                            child: Icon(Icons.refresh),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 50,
-                  )
-                ],
+          floatingActionButton: Container(
+            height: 50.0,
+            width: 50.0,
+            child: FittedBox(
+              child: FloatingActionButton(
+                onPressed: () {},
+                elevation: 3,
+                child: Icon(Icons.info_outline),
+                backgroundColor: Color(0xffff78ae),
               ),
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: Align(
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              'Count: ${showCount}',
-              style: TextStyle(
-                fontSize: 46,
-                color: Colors.white70,
-                decoration: TextDecoration.none,
-              ),
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Hello 👋',
+                      style: TextStyle(
+                          decoration: TextDecoration.none,
+                          color: Colors.white70,
+                          fontSize: 30),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 50),
+                Text(
+                  'This site will help you in practising card counting\n'
+                  'and developing quick calculation skills for maintaining\n'
+                  'the current count.\n\n'
+                  'The method used for calculating\n'
+                  'count is based on the Hi-Lo counting system.',
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: Colors.white70,
+                      fontSize: 26),
+                ),
+                SizedBox(height: 50),
+                Text(
+                  'For more info on Hi-Lo system, click on the i logo 🙂',
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: Colors.black54,
+                      fontSize: 16),
+                ),
+                SizedBox(
+                  height: 100,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: RaisedButton(
+                    onPressed: () {
+                      Navigator.push(context, FadeRoute(page: MainPage()));
+                    },
+                    color: Color(0xffff78ae),
+                    elevation: 3,
+                    child: Text('Play'),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      ),
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
-        )
+        ),
       ],
     );
   }
+}
+
+// transition class for overriding defalut material transition
+
+class FadeRoute extends PageRouteBuilder {
+  final Widget page;
+  FadeRoute({this.page})
+      : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              FadeTransition(
+            opacity: animation,
+            child: child,
+          ),
+        );
 }
