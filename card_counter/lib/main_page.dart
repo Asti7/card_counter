@@ -1,3 +1,5 @@
+import 'package:card_counter/widgets/custom_dialog.dart';
+import 'package:card_counter/widgets/custom_popup.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'value.dart';
@@ -242,6 +244,10 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
         ),
+
+        // this is custom built widget button for pop up.
+
+        CustomPopUp()
       ],
     );
   }

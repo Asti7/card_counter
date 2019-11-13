@@ -1,5 +1,8 @@
 import 'package:card_counter/main_page.dart';
+import 'package:card_counter/widgets/custom_dialog.dart';
+import 'package:card_counter/widgets/custom_popup.dart';
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class IntroPage extends StatelessWidget {
   @override
@@ -18,44 +21,42 @@ class IntroPage extends StatelessWidget {
               ),
             ),
           ),
-          floatingActionButton: Container(
-            height: 50.0,
-            width: 50.0,
-            child: FittedBox(
-              child: FloatingActionButton(
-                onPressed: () {},
-                elevation: 3,
-                child: Icon(Icons.info_outline),
-                backgroundColor: Color(0xffff78ae),
-              ),
-            ),
-          ),
         ),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(
-                      'Hello 👋',
-                      style: TextStyle(
+                    TypewriterAnimatedTextKit(
+                      onTap: () {},
+                      text: ['Hello'],
+                      textStyle: TextStyle(
                           decoration: TextDecoration.none,
                           color: Colors.white70,
                           fontSize: 30),
                     ),
                   ],
                 ),
-                SizedBox(height: 50),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  '👋',
+                  style:
+                      TextStyle(decoration: TextDecoration.none, fontSize: 30),
+                ),
+                SizedBox(height: 25),
                 Text(
                   'This site will help you in practising card counting\n'
                   'and developing quick calculation skills for maintaining\n'
                   'the current count.\n\n'
-                  'The method used for calculating\n'
-                  'count is based on the Hi-Lo counting system.',
+                  'The method used for calculating count is based on the\n'
+                  'Hi-Lo counting system.',
                   style: TextStyle(
                       decoration: TextDecoration.none,
                       color: Colors.white70,
@@ -63,7 +64,7 @@ class IntroPage extends StatelessWidget {
                 ),
                 SizedBox(height: 50),
                 Text(
-                  'For more info on Hi-Lo system, click on the i logo 🙂',
+                  'For more info on Hi-Lo system, click on the i button 🙂',
                   style: TextStyle(
                       decoration: TextDecoration.none,
                       color: Colors.black54,
@@ -87,11 +88,21 @@ class IntroPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+                ),
+                SizedBox(height: 100),
+                Text(
+                  '<> over 3 cups of ☕️ by Astitva',
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 16,
+                      color: Colors.white54),
+                ),
               ],
             ),
           ),
         ),
+        // this is custom built widget button for pop up.
+        CustomPopUp()
       ],
     );
   }
